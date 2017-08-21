@@ -15,7 +15,6 @@
 		F118DECA1F4AC0F300D742EB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F118DEC91F4AC0F300D742EB /* main.m */; };
 		F118DED41F4AC0F300D742EB /* Producer_Consumer_ThreadTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F118DED31F4AC0F300D742EB /* Producer_Consumer_ThreadTests.m */; };
 		F118DEDF1F4AC0F300D742EB /* Producer_Consumer_ThreadUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F118DEDE1F4AC0F300D742EB /* Producer_Consumer_ThreadUITests.m */; };
-		F118DEEE1F4AC1D500D742EB /* BlockingQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = F118DEED1F4AC1D500D742EB /* BlockingQueue.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,10 +51,8 @@
 		F118DEDA1F4AC0F300D742EB /* Producer Consumer ThreadUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Producer Consumer ThreadUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F118DEDE1F4AC0F300D742EB /* Producer_Consumer_ThreadUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Producer_Consumer_ThreadUITests.m; sourceTree = "<group>"; };
 		F118DEE01F4AC0F300D742EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F118DEEC1F4AC1D500D742EB /* BlockingQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BlockingQueue.h; path = ../../BlockingQueue.h; sourceTree = "<group>"; };
-		F118DEED1F4AC1D500D742EB /* BlockingQueue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = BlockingQueue.m; path = ../../BlockingQueue.m; sourceTree = "<group>"; };
-		F118DEF01F4AC1E400D742EB /* BlockingQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BlockingQueue.h; path = ../../../BlockingQueue.h; sourceTree = "<group>"; };
-		F118DEF11F4AC1E400D742EB /* BlockingQueue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = BlockingQueue.m; path = ../../../BlockingQueue.m; sourceTree = "<group>"; };
+		F118DEFD1F4AE37100D742EB /* BlockingQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BlockingQueue.h; path = "Producer Consumer Thread/BlockingQueue/BlockingQueue.h"; sourceTree = SOURCE_ROOT; };
+		F118DEFE1F4AE37100D742EB /* BlockingQueue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = BlockingQueue.m; path = "Producer Consumer Thread/BlockingQueue/BlockingQueue.m"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,11 +103,9 @@
 		F118DEB91F4AC0F300D742EB /* Producer Consumer Thread */ = {
 			isa = PBXGroup;
 			children = (
-				F118DEEF1F4AC1D900D742EB /* BlockingQueue */,
+				F118DEFC1F4AE34800D742EB /* BlockingQueue */,
 				F118DEBA1F4AC0F300D742EB /* AppDelegate.h */,
 				F118DEBB1F4AC0F300D742EB /* AppDelegate.m */,
-				F118DEEC1F4AC1D500D742EB /* BlockingQueue.h */,
-				F118DEED1F4AC1D500D742EB /* BlockingQueue.m */,
 				F118DEBD1F4AC0F300D742EB /* ViewController.h */,
 				F118DEBE1F4AC0F300D742EB /* ViewController.m */,
 				F118DEC01F4AC0F300D742EB /* Main.storyboard */,
@@ -140,13 +135,14 @@
 			path = "Producer Consumer ThreadUITests";
 			sourceTree = "<group>";
 		};
-		F118DEEF1F4AC1D900D742EB /* BlockingQueue */ = {
+		F118DEFC1F4AE34800D742EB /* BlockingQueue */ = {
 			isa = PBXGroup;
 			children = (
-				F118DEF01F4AC1E400D742EB /* BlockingQueue.h */,
-				F118DEF11F4AC1E400D742EB /* BlockingQueue.m */,
+				F118DEFD1F4AE37100D742EB /* BlockingQueue.h */,
+				F118DEFE1F4AE37100D742EB /* BlockingQueue.m */,
 			);
-			path = BlockingQueue;
+			name = BlockingQueue;
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,7 +275,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F118DEEE1F4AC1D500D742EB /* BlockingQueue.m in Sources */,
 				F118DEBF1F4AC0F300D742EB /* ViewController.m in Sources */,
 				F118DECA1F4AC0F300D742EB /* main.m in Sources */,
 				F118DEBC1F4AC0F300D742EB /* AppDelegate.m in Sources */,
