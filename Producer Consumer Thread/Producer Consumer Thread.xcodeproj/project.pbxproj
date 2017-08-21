@@ -51,8 +51,6 @@
 		F118DEDA1F4AC0F300D742EB /* Producer Consumer ThreadUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Producer Consumer ThreadUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F118DEDE1F4AC0F300D742EB /* Producer_Consumer_ThreadUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Producer_Consumer_ThreadUITests.m; sourceTree = "<group>"; };
 		F118DEE01F4AC0F300D742EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F118DEFD1F4AE37100D742EB /* BlockingQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BlockingQueue.h; path = "Producer Consumer Thread/BlockingQueue/BlockingQueue.h"; sourceTree = SOURCE_ROOT; };
-		F118DEFE1F4AE37100D742EB /* BlockingQueue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = BlockingQueue.m; path = "Producer Consumer Thread/BlockingQueue/BlockingQueue.m"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +101,6 @@
 		F118DEB91F4AC0F300D742EB /* Producer Consumer Thread */ = {
 			isa = PBXGroup;
 			children = (
-				F118DEFC1F4AE34800D742EB /* BlockingQueue */,
 				F118DEBA1F4AC0F300D742EB /* AppDelegate.h */,
 				F118DEBB1F4AC0F300D742EB /* AppDelegate.m */,
 				F118DEBD1F4AC0F300D742EB /* ViewController.h */,
@@ -133,16 +130,6 @@
 				F118DEE01F4AC0F300D742EB /* Info.plist */,
 			);
 			path = "Producer Consumer ThreadUITests";
-			sourceTree = "<group>";
-		};
-		F118DEFC1F4AE34800D742EB /* BlockingQueue */ = {
-			isa = PBXGroup;
-			children = (
-				F118DEFD1F4AE37100D742EB /* BlockingQueue.h */,
-				F118DEFE1F4AE37100D742EB /* BlockingQueue.m */,
-			);
-			name = BlockingQueue;
-			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

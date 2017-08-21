@@ -7,13 +7,13 @@
 //
 
 #import "ViewController.h"
-#import "BlockingQueue.h"
 
 @interface ViewController ()
+{
+    NSUInteger count;
+}
 
 @property (nonatomic, weak) IBOutlet UITextView *textView;
-@property (nonatomic, strong) BlockingQueue *blockingQueue;
-
 @end
 
 @implementation ViewController
@@ -21,7 +21,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.blockingQueue = [[BlockingQueue alloc] init];
+    self.queue = [[NSMutableArray alloc] init];
+    self.lock = [[NSCondition alloc] init];
+    self.dispatchQueue = dispatch_queue_create("com.bhavin.producerconsumer.blockingqueue", DISPATCH_QUEUE_SERIAL);
     
     [self performSelectorInBackground:@selector(producerThread) withObject:nil];
     [self performSelectorInBackground:@selector(consumerThread) withObject:nil];
@@ -33,8 +35,9 @@
 {
     while (YES)
     {
-        NSLog(@"Enqueue...!");
-        [_blockingQueue enqueue:[NSString stringWithFormat:@"%f", 0.01]];
+        count = count + 1;
+        [self enqueue:[NSString stringWithFormat:@"%lu",(unsigned long)count]];
+        NSLog(@"Enqueue: %@",[NSString stringWithFormat:@"%lu",(unsigned long)count]);
         [NSThread sleepForTimeInterval:0.01];
     }
 }
@@ -43,13 +46,55 @@
 {
     while (YES)
     {
+        if ([self count] == 200)
+        {
+            NSString *strDequeueString = [self dequeue];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                NSLog(@"Dequeue: %@",[NSString stringWithFormat:@"%@",strDequeueString]);
+            });
+        }
 
-        NSString *s = [_blockingQueue dequeue];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            NSString *strDequeueString = [NSString stringWithFormat:@"%@",s];
-            NSLog(@"Dequeue...!");
-        });
+        
     }
+}
+
+- (void)enqueue:(id)object
+{
+    [_lock lock];
+    [_queue addObject:object];
+    [_lock signal];
+    [_lock unlock];
+}
+
+- (id)dequeue
+{
+    __block id object;
+    dispatch_sync(_dispatchQueue, ^{
+        [_lock lock];
+        
+        
+        while (_queue.count == 0)
+        {
+            [_lock wait];
+        }
+        object = [_queue objectAtIndex:0];
+        [_queue removeObjectAtIndex:0];
+        [_lock unlock];
+    });
+    
+    return object;
+}
+
+- (NSUInteger)count
+{
+    return [_queue count];
+}
+
+- (void)dealloc
+{
+    self.dispatchQueue = nil;
+    self.queue = nil;
+    self.lock = nil;
 }
 
 - (void)didReceiveMemoryWarning {
