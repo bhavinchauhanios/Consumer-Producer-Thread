@@ -1,4 +1,4 @@
-# Consumer-Produser-Thread
+# Consumer-Producer-Thread
 Simple consumer producer thread implementation in Objective-C.
 
 ```
