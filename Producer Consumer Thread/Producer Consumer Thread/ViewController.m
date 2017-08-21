@@ -46,15 +46,10 @@
 {
     while (YES)
     {
-        if ([self count] == 200)
-        {
             NSString *strDequeueString = [self dequeue];
             dispatch_async(dispatch_get_main_queue(), ^{
                 NSLog(@"Dequeue: %@",[NSString stringWithFormat:@"%@",strDequeueString]);
             });
-        }
-
-        
     }
 }
 
